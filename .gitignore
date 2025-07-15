@@ -1,1 +1,9 @@
-*/.terraform
+.terraform
+.aws-sam
+.aws-sam-iacs
+.terraform.lock.hcl
+lambda.zip
+terraform.tfstate
+.DS_Store
+terraform.tfstate.backup
+lambda_function.zip
