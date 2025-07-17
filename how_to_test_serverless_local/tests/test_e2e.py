@@ -36,7 +36,7 @@ def test_s3_lambda_dynamodb_integration():
 
     # Initialize mocked AWS clients
     s3_client = boto3.client('s3', region_name=MOCKED_AWS_REGION)
-    dynamodb_client = boto3.client('dynamodb')
+    dynamodb_client = boto3.client('dynamodb', region_name=MOCKED_AWS_REGION)
     # 1. Create mocked S3 bucket
     print(f"Creating mocked S3 bucket: {MOCKED_S3_BUCKET_NAME}...")
     s3_client.create_bucket(Bucket=MOCKED_S3_BUCKET_NAME)

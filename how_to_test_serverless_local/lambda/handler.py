@@ -14,6 +14,7 @@ def lambda_handler(event, context):
     # This ensures it's read correctly during each invocation,
     # especially in test environments where env vars might be set dynamically.
     DYNAMODB_TABLE_NAME = os.environ.get('DYNAMODB_TABLE_NAME')
+    REGION = 'us-east-1'
 
     if not DYNAMODB_TABLE_NAME:
         print("Error: DYNAMODB_TABLE_NAME environment variable not set.")
@@ -24,8 +25,8 @@ def lambda_handler(event, context):
 
     # Initialize AWS clients *inside the function* to ensure they pick up
     # the correct (mocked or real) environment for each invocation.
-    s3_client = boto3.client('s3')
-    dynamodb = boto3.resource('dynamodb')
+    s3_client = boto3.client('s3',region_name=REGION)
+    dynamodb = boto3.resource('dynamodb',region_name=REGION)
 
     try:
         # Get the S3 event record
