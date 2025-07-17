@@ -1,11 +1,11 @@
 on: 
-  push:
-    branches:
-        - main
-  pull_request:
-    branches:
-        - main
-          
+    push:
+      branches:
+          - main
+    pull_request:
+      branches:
+          - main
+            
 jobs:
   integration-test:
     runs-on: ubuntu-latest
@@ -24,7 +24,5 @@ jobs:
             pip install boto3 moto pytest
             
         - name: Run Integration test with Pytest
-          run: pytest tests/e2e_test.py    
-
-
-
+          run: pytest how_to_test_serverless_local/tests/e2e_test.py    
+    
